@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quản lý sinh viên</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="database.sql">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <span class="brand-mark">QL</span>
+      <div>
+        <h1>Quản lý sinh viên</h1>
+        <p>Khoa Công nghệ - Kỹ thuật</p>
+      </div>
+    </div>
+    <nav class="menu">
+      <a href="#" class="active">Trang chủ</a>
+      <a href="#khu-nhap">Sinh viên</a>
+      <a href="#danh-sach">Điểm học tập</a>
+      <a href="#thong-ke">Thống kê</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="panel form-panel" id="khu-nhap">
+    <div class="panel-head">
+      <h2>Thông tin sinh viên</h2>
+      <p>Nhập đầy đủ các trường bên dưới rồi bấm Thêm sinh viên.</p>
+    </div>
+
+    <div class="grid">
+      <label>Mã sinh viên
+        <input type="text" id="masv" placeholder="VD: SV001">
+      </label>
+      <label>Họ tên
+        <input type="text" id="hoten" placeholder="VD: Nguyễn Văn An">
+      </label>
+      <label>Lớp
+        <input type="text" id="lop" placeholder="VD: CNTT-K11">
+      </label>
+      <label>Điểm lý thuyết
+        <input type="number" id="dlt" min="0" max="10" step="0.1" placeholder="0 - 10">
+      </label>
+      <label>Điểm thực hành
+        <input type="number" id="dth" min="0" max="10" step="0.1" placeholder="0 - 10">
+      </label>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" onclick="themSinhVien()">Thêm sinh viên</button>
+      <button class="btn btn-ghost" onclick="lamMoi()">Làm mới</button>
+    </div>
+
+    <div id="thongbao" class="alert"></div>
+  </section>
+
+  <section class="panel search-panel">
+    <h2>Tìm kiếm</h2>
+    <div class="search-row">
+      <input type="text" id="tukhoa" placeholder="Nhập mã sinh viên hoặc họ tên">
+      <button class="btn btn-primary" onclick="timKiem()">Tìm kiếm</button>
+      <button class="btn btn-ghost" onclick="xoaTimKiem()">Xem tất cả</button>
+    </div>
+  </section>
+
+  <section class="panel list-panel" id="danh-sach">
+    <div class="panel-head row">
+      <h2>Danh sách sinh viên</h2>
+      <span class="count" id="tongso">0 sinh viên</span>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Mã sinh viên</th>
+            <th>Họ tên</th>
+            <th>Lớp</th>
+            <th>Điểm lý thuyết</th>
+            <th>Điểm thực hành</th>
+            <th>Điểm trung bình</th>
+            <th>Xếp loại</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Thống kê -->
+  <section class="panel stats" id="thong-ke">
+    <h2>Thống kê xếp loại</h2>
+    <div class="stat-grid">
+      <div class="stat"><span id="sl-gioi">0</span>Giỏi</div>
+      <div class="stat"><span id="sl-kha">0</span>Khá</div>
+      <div class="stat"><span id="sl-tb">0</span>Trung bình</div>
+      <div class="stat"><span id="sl-yeu">0</span>Yếu</div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">Hệ thống quản lý sinh viên &middot; Khoa Công nghệ - Kỹ thuật</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
